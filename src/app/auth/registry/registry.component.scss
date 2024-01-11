@@ -1,7 +1,11 @@
-.example-form-fields {
+
+.form-registry-fields {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
+    .input-box {
+        margin-bottom: 15px;
+    }
 }
 
 .error-input {

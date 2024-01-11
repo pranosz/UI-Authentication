@@ -27,10 +27,6 @@ export class UserNamePasswordComponent implements OnInit {
       user: ['', Validators.required],
       pwd: ['', Validators.required]
     }))
-    
-    this.parentFormGroup.get(this.controlName)?.valueChanges.subscribe(change => {
-    //  console.log(this.parentFormGroup.controls[this.controlName].get('username'), change);
-    });
   }
 
   getErrorMessage(controlName: string): string {

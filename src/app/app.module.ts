@@ -12,14 +12,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserNamePasswordComponent } from './forms/user-name-password/user-name-password.component';
+import { UserNamePasswordComponent } from './common/forms/user-name-password/user-name-password.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegistryComponent } from './auth/registry/registry.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserNamePasswordComponent
+    UserNamePasswordComponent,
+    RegistryComponent
   ],
   imports: [
     BrowserModule,

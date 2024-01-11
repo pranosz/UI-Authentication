@@ -1,0 +1,32 @@
+<mat-grid-list cols="1" rowHeight="2:1">
+    <mat-grid-tile>
+    <form [formGroup]="registryForm" (ngSubmit)="onSubmit()">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Registry</mat-card-title>
+                <mat-card-subtitle>Enter your name and password</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="form-registry-fields">
+                    <mat-form-field class="input-box">
+                        <mat-label>name</mat-label>
+                        <input matInput formControlName="user">
+                        <mat-error *ngIf="registryForm?.get('user')?.invalid">{{getErrorMessage('user')}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="input-box">
+                        <mat-label>password</mat-label>
+                        <input matInput [type]="'password'" formControlName="pwd">
+                        <mat-error *ngIf="registryForm?.get('pwd')?.invalid">{{getErrorMessage('pwd')}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="input-box">
+                        <mat-label>Repeat password</mat-label>
+                        <input matInput [type]="'password'" formControlName="pwd2">
+                        <mat-error *ngIf="registryForm?.get('pwd2')?.invalid">{{getErrorMessage('pwd2')}}</mat-error>
+                    </mat-form-field>
+                    <button type="submit" mat-flat-button color="primary">Login</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </form>
+    </mat-grid-tile>
+</mat-grid-list>
