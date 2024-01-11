@@ -22,4 +22,8 @@ export class UserManagementService {
   userLogout(user: User): Observable<any> {
     return this.httpClient.get(`${this.url}/logout`);
   }
+
+  checkIfUserExists(name: string): Observable<{'exists': boolean}> {
+    return this.httpClient.post<{'exists': boolean}>(`${this.url}/users/exists`, {name});
+  }
 }

@@ -38,16 +38,16 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "src/app/app-routing.module.ts",
-        "hash": "9341811104152459540"
+        "file": "src/app/app.module.ts",
+        "hash": "17243123959370517676"
       },
       {
-        "file": "src/app/auth/registry/registry.component.html",
-        "hash": "12599337508640217392"
+        "file": "src/app/auth/services/user-management.service.ts",
+        "hash": "1528264811956259637"
       },
       {
-        "file": "src/app/common/forms/user-name-password/user-name-password.component.html",
-        "hash": "7270586988733634756"
+        "file": "src/app/common/forms/user-name-password/user-name-password.component.spec.ts",
+        "hash": "2278892694879821733"
       },
       {
         "file": "src/app/auth/registry/registry.component.spec.ts",
@@ -58,36 +58,44 @@
         "hash": "7716707277874259707"
       },
       {
-        "file": "src/app/app.module.ts",
-        "hash": "17243123959370517676"
+        "file": "src/app/auth/registry/registry.component.scss",
+        "hash": "184983370751037258"
       },
       {
         "file": "src/app/auth/registry/registry.component.ts",
-        "hash": "1236940347868290399"
+        "hash": "8114760767699166116"
+      },
+      {
+        "file": "src/app/common/forms/user-name-password/user-name-password.component.html",
+        "hash": "7270586988733634756"
       },
       {
         "file": "src/app/auth/login/login.component.html",
         "hash": "3561648793456703979"
       },
       {
-        "file": "src/app/common/forms/user-name-password/user-name-password.component.ts",
-        "hash": "2259411013499025902"
+        "file": "src/app/common/validators/auth.validators.ts",
+        "hash": "13072400782019809358"
       },
       {
-        "file": "src/app/auth/registry/registry.component.scss",
-        "hash": "184983370751037258"
+        "file": "src/app/common/forms/user-name-password/user-name-password.component.ts",
+        "hash": "2259411013499025902"
       },
       {
         "file": "src/app/auth/login/login.component.ts",
         "hash": "17382474690349606679"
       },
       {
-        "file": "src/app/common/forms/user-name-password/user-name-password.component.spec.ts",
-        "hash": "2278892694879821733"
+        "file": "src/app/auth/registry/registry.component.html",
+        "hash": "14018436863912000122"
       },
       {
         "file": "src/app/auth/login/login.component.scss",
         "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/app-routing.module.ts",
+        "hash": "9341811104152459540"
       }
     ],
     "projectFileMap": {
