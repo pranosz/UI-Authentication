@@ -1,59 +1,82 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { UserManagementService } from '../services/user-management.service';
 import { startWith } from 'rxjs';
 import { AuthValidators } from 'src/app/common/validators/auth.validators';
-
+import { ErrorStateMatcher } from '@angular/material/core';
+import { RangeValidators } from 'src/app/common/validators/range.validators';
+import { ValidatorsMessagesService } from 'src/app/auth/services/validators-messages';
+import { Router } from '@angular/router';
+/*
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    return !!(control && control.invalid && control.dirty);
+  }
+}
+*/
 @Component({
   selector: 'app-registry',
   templateUrl: './registry.component.html',
-  styleUrls: ['./registry.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./registry.component.scss']
 })
-export class RegistryComponent implements OnInit{
+export class RegistryComponent implements OnInit {
+  @ViewChild(FormGroupDirective) formDirective!: FormGroupDirective;
+
   private fb = inject(FormBuilder);
   private userManagementService = inject(UserManagementService);
+  private validatorsMessagesService = inject(ValidatorsMessagesService);
+  private router = inject(Router);
+
+  private disableSubmit = false;
+
+  // matcher = new MyErrorStateMatcher();
   
-  registryForm: FormGroup = this.fb.group({
+  registryForm: FormGroup = this.fb.nonNullable.group({
       user: ['', 
-      Validators.required,
-      AuthValidators.isUserExistAsyncValidator(this.userManagementService)
+      { 
+        validators: [
+          Validators.required, 
+    //      RangeValidators.characterRangeValidator(8, 15)
+        ],
+        asyncValidators: [AuthValidators.isUserExistAsyncValidator(this.userManagementService)],
+      //  updateOn: 'blur' 
+      }
     ],
       pwd: ['', [
         Validators.required, 
-        AuthValidators.passwordStrengthValidator()
+    //    RangeValidators.characterRangeValidator(8, 15),
+      //  AuthValidators.passwordStrengthValidator()
       ]],
-      confirmPwd: ['', [AuthValidators.comfirmPasswordValidator()]]
+      confirmPwd: ['', [Validators.required, AuthValidators.comfirmPasswordValidator()]]
   });
 
+  get userControl(): AbstractControl {
+    return this.registryForm.controls['user'];
+  }
+
+  get pwdControl(): AbstractControl {
+    return this.registryForm.controls['pwd'];
+  }
+
+  get confirmPwdControl(): AbstractControl {
+    return this.registryForm.controls['confirmPwd'];
+  }
+
+
+  get isSubmitDisable(): boolean {
+    return !this.registryForm.valid || this.disableSubmit;
+  }
+
   ngOnInit(): void {
-    this.registryForm.get('pwd')?.valueChanges.pipe(
-      startWith('')
-    ).subscribe(change => {
-      console.log(change);
-      if(change === '' || this.registryForm.get('pwd')?.invalid){
-        this.registryForm.get('confirmPwd')?.disable();
-      } else {
-        this.registryForm.get('confirmPwd')?.enable();
-      }
-      /*
-        console.log('pwd', change);
-        console.log(this.registryForm.get('pwd2'));
-        */
-      });
+    this.disableOrEnableComfirmField();
   }
 
   getErrorMessage(controlName: string): string {
+    const control = this.registryForm.get(controlName);
 
-    if (this.registryForm?.get(controlName)?.hasError('required')) {
-      return 'You must enter a value';
-    } else if (this.registryForm?.get(controlName)?.hasError('passwordStrength')) {
-      return 'Your password is not strong enough';
-    } else if (this.registryForm?.get(controlName)?.hasError('passwordsDoesNotMatch')) {
-      return 'Confirm password is different';
-    } else if (this.registryForm?.get(controlName)?.hasError('userExists')) {
-      return 'User already exists';
+    if(control && control.errors) {
+      return this.validatorsMessagesService.getSingleMessage(control.errors);
     }
 
     return '';
@@ -61,12 +84,27 @@ export class RegistryComponent implements OnInit{
 
 
   onSubmit(): void {
+    this.disableSubmit = true;
     console.log('registryForm ', this.registryForm.getRawValue());
     const userAuth = this.registryForm.getRawValue();
-    /*
+
     this.userManagementService.userRegistry(userAuth).subscribe( response => {
       console.log('response ', response);
-    });*/
-   // this.loginForm.reset();
+      this.disableSubmit = false;
+      this.formDirective.resetForm();
+      this.router.navigate(['login']);
+    });
+  }
+
+  private disableOrEnableComfirmField(): void {
+    this.pwdControl?.valueChanges.pipe(
+      startWith('')
+    ).subscribe(change => {
+      if(change === '' || this.pwdControl?.invalid){
+        this.confirmPwdControl?.disable();
+      } else {
+        this.confirmPwdControl?.enable();
+      }
+      });
   }
 }

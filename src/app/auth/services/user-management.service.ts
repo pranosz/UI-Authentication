@@ -26,4 +26,8 @@ export class UserManagementService {
   checkIfUserExists(name: string): Observable<{'exists': boolean}> {
     return this.httpClient.post<{'exists': boolean}>(`${this.url}/users/exists`, {name});
   }
+
+  getUsers(): Observable<string[]> {
+    return this.httpClient.get<string[]>(`${this.url}/users`);
+  }
 }

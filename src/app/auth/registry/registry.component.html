@@ -1,11 +1,11 @@
 <mat-grid-list cols="1" rowHeight="2:1">
     <mat-grid-tile>
     <form [formGroup]="registryForm" (ngSubmit)="onSubmit()">
-        <mat-card>
+        <mat-card class="registry-card width">
             <mat-card-header>
                 <mat-card-title>Registry</mat-card-title>
                 <mat-card-subtitle>
-                    <p>Your password must be at least 8 characters long and contain:</p>
+                    <p>Your password must be at least 8 characters long (max 15 characters) and contain:</p>
                     <p>- upper case</p>
                     <p>- lowercase case</p>
                     <p>- special case</p>
@@ -17,19 +17,19 @@
                     <mat-form-field class="input-box">
                         <mat-label>name</mat-label>
                         <input matInput formControlName="user">
-                        <mat-error *ngIf="registryForm?.get('user')?.invalid">{{getErrorMessage('user')}}</mat-error>
+                        <mat-error *ngIf="userControl?.invalid">{{getErrorMessage('user')}}</mat-error>
                     </mat-form-field>
                     <mat-form-field class="input-box">
                         <mat-label>password</mat-label>
                         <input matInput [type]="'password'" formControlName="pwd">
-                        <mat-error *ngIf="registryForm?.get('pwd')?.invalid">{{getErrorMessage('pwd')}}</mat-error>
+                        <mat-error *ngIf="pwdControl?.invalid">{{getErrorMessage('pwd')}}</mat-error>
                     </mat-form-field>
                     <mat-form-field class="input-box">
                         <mat-label>Confirm password</mat-label>
                         <input matInput [type]="'password'" formControlName="confirmPwd">
-                        <mat-error *ngIf="registryForm?.get('confirmPwd')?.invalid">{{getErrorMessage('confirmPwd')}}</mat-error>
+                        <mat-error *ngIf="confirmPwdControl?.invalid">{{getErrorMessage('confirmPwd')}}</mat-error>
                     </mat-form-field>
-                    <button type="submit" [disabled]="!registryForm.valid" mat-flat-button color="primary">Login</button>
+                    <button type="submit" [disabled]="isSubmitDisable" mat-flat-button color="primary">Submit</button>
                 </div>
             </mat-card-content>
         </mat-card>

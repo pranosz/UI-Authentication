@@ -15,13 +15,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserNamePasswordComponent } from './common/forms/user-name-password/user-name-password.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistryComponent } from './auth/registry/registry.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UserNamePasswordComponent,
-    RegistryComponent
+    RegistryComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

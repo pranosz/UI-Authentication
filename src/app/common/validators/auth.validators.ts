@@ -1,6 +1,6 @@
-import { inject } from "@angular/core";
 import { AbstractControl, AsyncValidatorFn, ValidationErrors, ValidatorFn } from "@angular/forms";
-import { Observable, catchError, delay, map, of, switchMap } from "rxjs";
+import { Observable, catchError, delay, map, of, switchMap, tap } from "rxjs";
+import { ValidationErrorsEnum } from "src/app/auth/models/validtion-errors.enum";
 import { UserManagementService } from "src/app/auth/services/user-management.service";
 
 export class AuthValidators {
@@ -10,7 +10,6 @@ export class AuthValidators {
             const password = control.value;
 
             if(
-                password.length >= 8 &&
                 /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+/.test(password) &&
                 /[A-Z]+/.test(password) &&
                 /[a-z]+/.test(password) &&
@@ -29,7 +28,7 @@ export class AuthValidators {
             const confirmPwd = control.parent?.get('confirmPwd')?.value;
 
             if(pwd && confirmPwd && pwd !== confirmPwd){
-                return {passwordsDoesNotMatch: true}
+                return {[ValidationErrorsEnum.passwordsDoesNotMatch]: true}
             }
             return null;
         }
@@ -45,4 +44,17 @@ export class AuthValidators {
             );
         }
     }
+/*
+    static isUserExistAsyncValidator2(userService: UserManagementService): AsyncValidatorFn {
+        return (control: AbstractControl): Observable<ValidationErrors | null> => {
+            return userService.getUsers().pipe(
+                map(data => {
+                    const result = data.some( username => username.toLocaleLowerCase() === control.value.toLocaleLowerCase());
+                    return result ? {'userExists': true} : null;
+                }),
+                catchError(() => of({'serverError': true}))
+            )
+        }
+    }
+    */
 }

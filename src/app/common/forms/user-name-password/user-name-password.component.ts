@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { ControlContainer, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, ControlContainer, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ValidatorsMessagesService } from 'src/app/auth/services/validators-messages';
 
 @Component({
   selector: 'form-group-user-name-password',
@@ -17,6 +18,7 @@ export class UserNamePasswordComponent implements OnInit {
 
   controlContainer = inject(ControlContainer);
   private fb = inject(FormBuilder);
+  private validatorsMessagesService = inject(ValidatorsMessagesService);
 
   get parentFormGroup(): FormGroup {
     return this.controlContainer.control as FormGroup;
@@ -29,9 +31,11 @@ export class UserNamePasswordComponent implements OnInit {
     }))
   }
 
-  getErrorMessage(controlName: string): string {
-    if (this.parentFormGroup?.controls[this.controlName]?.get(controlName)?.hasError('required')) {
-      return 'You must enter a value';
+  getErrorMessage(name: string): string {
+    const control = this.parentFormGroup.controls[this.controlName]?.get(name);
+
+    if(control && control.errors) {
+      return this.validatorsMessagesService.getSingleMessage(control.errors);
     }
 
     return '';

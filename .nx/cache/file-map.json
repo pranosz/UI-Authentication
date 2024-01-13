@@ -38,64 +38,92 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "src/app/app.module.ts",
-        "hash": "17243123959370517676"
+        "file": "src/app/auth/models/validtion-errors.enum.ts",
+        "hash": "9030080122537570844"
       },
       {
-        "file": "src/app/auth/services/user-management.service.ts",
-        "hash": "1528264811956259637"
+        "file": "src/app/dashboard/dashboard.component.spec.ts",
+        "hash": "13268531653547974577"
       },
       {
-        "file": "src/app/common/forms/user-name-password/user-name-password.component.spec.ts",
-        "hash": "2278892694879821733"
+        "file": "src/app/common/validators/auth.validators.ts",
+        "hash": "9646073129537855221"
       },
       {
-        "file": "src/app/auth/registry/registry.component.spec.ts",
-        "hash": "5844601483143007083"
+        "file": "src/app/common/forms/user-name-password/user-name-password.component.ts",
+        "hash": "1054301908828768911"
       },
       {
-        "file": "src/app/common/forms/user-name-password/user-name-password.component.scss",
-        "hash": "7716707277874259707"
-      },
-      {
-        "file": "src/app/auth/registry/registry.component.scss",
-        "hash": "184983370751037258"
-      },
-      {
-        "file": "src/app/auth/registry/registry.component.ts",
-        "hash": "8114760767699166116"
-      },
-      {
-        "file": "src/app/common/forms/user-name-password/user-name-password.component.html",
-        "hash": "7270586988733634756"
+        "file": "src/app/common/validators/range.validators.ts",
+        "hash": "5165325320447182280"
       },
       {
         "file": "src/app/auth/login/login.component.html",
         "hash": "3561648793456703979"
       },
       {
-        "file": "src/app/common/validators/auth.validators.ts",
-        "hash": "13072400782019809358"
-      },
-      {
-        "file": "src/app/common/forms/user-name-password/user-name-password.component.ts",
-        "hash": "2259411013499025902"
-      },
-      {
-        "file": "src/app/auth/login/login.component.ts",
-        "hash": "17382474690349606679"
-      },
-      {
-        "file": "src/app/auth/registry/registry.component.html",
-        "hash": "14018436863912000122"
-      },
-      {
         "file": "src/app/auth/login/login.component.scss",
         "hash": "3244421341483603138"
       },
       {
+        "file": "src/app/auth/services/user-management.service.ts",
+        "hash": "11481434926560223689"
+      },
+      {
+        "file": "src/app/auth/login/login.component.ts",
+        "hash": "455373313155835228"
+      },
+      {
+        "file": "src/app/auth/registry/registry.component.html",
+        "hash": "14383672882455385064"
+      },
+      {
+        "file": "src/app/auth/registry/registry.component.spec.ts",
+        "hash": "5844601483143007083"
+      },
+      {
+        "file": "src/app/auth/registry/registry.component.scss",
+        "hash": "14332493220018865583"
+      },
+      {
+        "file": "src/app/auth/registry/registry.component.ts",
+        "hash": "7992632245336475225"
+      },
+      {
+        "file": "src/app/dashboard/dashboard.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/common/forms/user-name-password/user-name-password.component.scss",
+        "hash": "7716707277874259707"
+      },
+      {
+        "file": "src/app/common/forms/user-name-password/user-name-password.component.spec.ts",
+        "hash": "2278892694879821733"
+      },
+      {
+        "file": "src/app/auth/services/validators-messages.ts",
+        "hash": "1285452917876532587"
+      },
+      {
+        "file": "src/app/dashboard/dashboard.component.ts",
+        "hash": "9979783224238491655"
+      },
+      {
+        "file": "src/app/app.module.ts",
+        "hash": "15398682975341823101"
+      },
+      {
         "file": "src/app/app-routing.module.ts",
-        "hash": "9341811104152459540"
+        "hash": "3454544006753349191"
+      },
+      {
+        "file": "src/app/common/forms/user-name-password/user-name-password.component.html",
+        "hash": "7270586988733634756"
+      },
+      {
+        "file": "src/app/dashboard/dashboard.component.html",
+        "hash": "4894489786295920269"
       }
     ],
     "projectFileMap": {
