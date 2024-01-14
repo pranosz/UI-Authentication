@@ -38,92 +38,64 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "src/app/auth/models/validtion-errors.enum.ts",
-        "hash": "9030080122537570844"
-      },
-      {
-        "file": "src/app/dashboard/dashboard.component.spec.ts",
-        "hash": "13268531653547974577"
-      },
-      {
-        "file": "src/app/common/validators/auth.validators.ts",
-        "hash": "9646073129537855221"
-      },
-      {
-        "file": "src/app/common/forms/user-name-password/user-name-password.component.ts",
-        "hash": "1054301908828768911"
-      },
-      {
-        "file": "src/app/common/validators/range.validators.ts",
-        "hash": "5165325320447182280"
-      },
-      {
-        "file": "src/app/auth/login/login.component.html",
-        "hash": "3561648793456703979"
-      },
-      {
-        "file": "src/app/auth/login/login.component.scss",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "src/app/auth/services/user-management.service.ts",
-        "hash": "11481434926560223689"
-      },
-      {
-        "file": "src/app/auth/login/login.component.ts",
-        "hash": "455373313155835228"
-      },
-      {
-        "file": "src/app/auth/registry/registry.component.html",
-        "hash": "14383672882455385064"
-      },
-      {
-        "file": "src/app/auth/registry/registry.component.spec.ts",
-        "hash": "5844601483143007083"
-      },
-      {
-        "file": "src/app/auth/registry/registry.component.scss",
-        "hash": "14332493220018865583"
-      },
-      {
-        "file": "src/app/auth/registry/registry.component.ts",
-        "hash": "7992632245336475225"
-      },
-      {
-        "file": "src/app/dashboard/dashboard.component.scss",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "src/app/common/forms/user-name-password/user-name-password.component.scss",
-        "hash": "7716707277874259707"
-      },
-      {
-        "file": "src/app/common/forms/user-name-password/user-name-password.component.spec.ts",
-        "hash": "2278892694879821733"
-      },
-      {
-        "file": "src/app/auth/services/validators-messages.ts",
-        "hash": "1285452917876532587"
+        "file": "src/app/dashboard/services/products.service.spec.ts",
+        "hash": "4636494386083501968"
       },
       {
         "file": "src/app/dashboard/dashboard.component.ts",
-        "hash": "9979783224238491655"
+        "hash": "9779726898445390183"
       },
       {
-        "file": "src/app/app.module.ts",
-        "hash": "15398682975341823101"
+        "file": "src/app/auth/services/authentication.service.ts",
+        "hash": "33235470301914890"
+      },
+      {
+        "file": "src/app/dashboard/services/products.service.ts",
+        "hash": "15298964961199747817"
+      },
+      {
+        "file": "src/app/dashboard/models/product.ts",
+        "hash": "13629612457788234429"
+      },
+      {
+        "file": "src/app/auth/login/login.component.ts",
+        "hash": "1089897686823015056"
+      },
+      {
+        "file": "src/app/auth/services/guards/auth-guard.ts",
+        "hash": "17235009260792057903"
+      },
+      {
+        "file": "src/app/auth/models/role.type.ts",
+        "hash": "2470306161326415621"
+      },
+      {
+        "file": "src/app/auth/guards/auth-guard.ts",
+        "hash": "14258933309686514397"
+      },
+      {
+        "file": "src/app/auth/services/authentication.service.spec.ts",
+        "hash": "9336182511222613820"
       },
       {
         "file": "src/app/app-routing.module.ts",
-        "hash": "3454544006753349191"
+        "hash": "7231249973511524222"
       },
       {
-        "file": "src/app/common/forms/user-name-password/user-name-password.component.html",
-        "hash": "7270586988733634756"
+        "file": "src/app/auth/services/interceptors/jwt.interceptor.ts",
+        "hash": "8083192803312695045"
+      },
+      {
+        "file": "src/app/auth/models/user-auth-response.ts",
+        "hash": "9331699947475333662"
+      },
+      {
+        "file": "src/app/app.module.ts",
+        "hash": "10695085869460629522"
       },
       {
         "file": "src/app/dashboard/dashboard.component.html",
-        "hash": "4894489786295920269"
+        "hash": "10994893640523602023"
       }
     ],
     "projectFileMap": {
@@ -134,7 +106,7 @@
         },
         {
           "file": ".gitignore",
-          "hash": "13044518069027839699"
+          "hash": "8331677184229837319"
         },
         {
           "file": ".vscode/extensions.json",
@@ -202,7 +174,7 @@
         },
         {
           "file": "src/app/app-routing.module.ts",
-          "hash": "2655133796903065262",
+          "hash": "3454544006753349191",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/router"
@@ -233,7 +205,7 @@
         },
         {
           "file": "src/app/app.module.ts",
-          "hash": "3952582724716433759",
+          "hash": "15398682975341823101",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/platform-browser",
@@ -244,11 +216,11 @@
         },
         {
           "file": "src/app/auth/login/login.component.html",
-          "hash": "7809221736766155176"
+          "hash": "3561648793456703979"
         },
         {
           "file": "src/app/auth/login/login.component.scss",
-          "hash": "3743692821623807754"
+          "hash": "3244421341483603138"
         },
         {
           "file": "src/app/auth/login/login.component.spec.ts",
@@ -259,15 +231,47 @@
         },
         {
           "file": "src/app/auth/login/login.component.ts",
-          "hash": "11002285616077139815",
+          "hash": "455373313155835228",
           "deps": [
             "npm:@angular/core",
-            "npm:@angular/forms"
+            "npm:@angular/forms",
+            "npm:@angular/router"
           ]
         },
         {
           "file": "src/app/auth/models/user.ts",
           "hash": "18238867843579483846"
+        },
+        {
+          "file": "src/app/auth/models/validtion-errors.enum.ts",
+          "hash": "9030080122537570844"
+        },
+        {
+          "file": "src/app/auth/registry/registry.component.html",
+          "hash": "14383672882455385064"
+        },
+        {
+          "file": "src/app/auth/registry/registry.component.scss",
+          "hash": "14332493220018865583"
+        },
+        {
+          "file": "src/app/auth/registry/registry.component.spec.ts",
+          "hash": "5844601483143007083",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/auth/registry/registry.component.ts",
+          "hash": "7633622780019044627",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "npm:rxjs",
+            "npm:@angular/material",
+            "npm:@angular/router"
+          ]
         },
         {
           "file": "src/app/auth/services/user-management.service.spec.ts",
@@ -278,7 +282,7 @@
         },
         {
           "file": "src/app/auth/services/user-management.service.ts",
-          "hash": "12414145003831790456",
+          "hash": "11481434926560223689",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -286,26 +290,70 @@
           ]
         },
         {
-          "file": "src/app/forms/user-name-password/user-name-password.component.html",
-          "hash": "2913112408489607465"
+          "file": "src/app/auth/services/validators-messages.ts",
+          "hash": "1285452917876532587",
+          "deps": [
+            "npm:@angular/core"
+          ]
         },
         {
-          "file": "src/app/forms/user-name-password/user-name-password.component.scss",
-          "hash": "8208994912351302960"
+          "file": "src/app/common/forms/user-name-password/user-name-password.component.html",
+          "hash": "7270586988733634756"
         },
         {
-          "file": "src/app/forms/user-name-password/user-name-password.component.spec.ts",
+          "file": "src/app/common/forms/user-name-password/user-name-password.component.scss",
+          "hash": "7716707277874259707"
+        },
+        {
+          "file": "src/app/common/forms/user-name-password/user-name-password.component.spec.ts",
           "hash": "2278892694879821733",
           "deps": [
             "npm:@angular/core"
           ]
         },
         {
-          "file": "src/app/forms/user-name-password/user-name-password.component.ts",
-          "hash": "10642784479406793753",
+          "file": "src/app/common/forms/user-name-password/user-name-password.component.ts",
+          "hash": "1054301908828768911",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "src/app/common/validators/auth.validators.ts",
+          "hash": "9646073129537855221",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "src/app/common/validators/range.validators.ts",
+          "hash": "5165325320447182280",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "src/app/dashboard/dashboard.component.html",
+          "hash": "4894489786295920269"
+        },
+        {
+          "file": "src/app/dashboard/dashboard.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/dashboard/dashboard.component.spec.ts",
+          "hash": "13268531653547974577",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/dashboard/dashboard.component.ts",
+          "hash": "9979783224238491655",
+          "deps": [
+            "npm:@angular/core"
           ]
         },
         {

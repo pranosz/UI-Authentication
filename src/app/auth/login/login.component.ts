@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserManagementService } from '../services/user-management.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -12,17 +12,18 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   private fb = inject(FormBuilder);
-  private userManagementService = inject(UserManagementService);
+  private authenticationService = inject(AuthenticationService);
   private router = inject(Router);
   loginForm: FormGroup = this.fb.group({});
 
   onSubmit(): void {
     console.log('loginForm ', this.loginForm.getRawValue()['user-credentials']);
-    const userAuth = this.loginForm.getRawValue()['user-credentials']
-    this.userManagementService.userAuthentication(userAuth).subscribe( response => {
-      console.log('response ', response);
+    const userAuth = this.loginForm.getRawValue()['user-credentials'];
+
+    this.authenticationService.login(userAuth).subscribe( response => {
       this.router.navigate(['dashboard']);
     });
+    
   }
 
 }

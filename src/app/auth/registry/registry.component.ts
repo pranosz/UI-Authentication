@@ -89,7 +89,7 @@ export class RegistryComponent implements OnInit {
     const userAuth = this.registryForm.getRawValue();
 
     this.userManagementService.userRegistry(userAuth).subscribe( response => {
-      console.log('response ', response);
+      
       this.disableSubmit = false;
       this.formDirective.resetForm();
       this.router.navigate(['login']);

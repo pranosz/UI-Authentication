@@ -13,9 +13,11 @@ import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserNamePasswordComponent } from './common/forms/user-name-password/user-name-password.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RegistryComponent } from './auth/registry/registry.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {MatListModule} from '@angular/material/list';
+import { JwtInterceptor } from './auth/services/interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,9 +38,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
