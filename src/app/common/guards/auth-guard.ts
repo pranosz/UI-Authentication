@@ -1,6 +1,6 @@
 import { Injectable, inject } from "@angular/core";
 import { UrlTree } from "@angular/router";
-import { AuthenticationService } from "../authentication.service";
+import { AuthenticationService } from "../../auth/services/authentication.service";
 import { Observable } from "rxjs";
 
 @Injectable()

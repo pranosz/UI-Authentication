@@ -1,0 +1,8 @@
+<mat-card>
+    <mat-card-header>Products</mat-card-header>
+    <mat-card-content>
+        <app-products-list 
+            [products]="$products"
+            (onShowDetails)="showDetails($event)"></app-products-list>
+    </mat-card-content>
+</mat-card>

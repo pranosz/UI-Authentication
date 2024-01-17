@@ -1,0 +1,6 @@
+<mat-toolbar color="primary" *ngIf="authenticationService.isLogin()" aria-label="main toolbar">
+    <mat-toolbar-row>
+        <span>Custom Toolbar</span>
+        <button mat-flat-button color="primary" (click)="logout()">Logout</button>
+    </mat-toolbar-row>
+</mat-toolbar>

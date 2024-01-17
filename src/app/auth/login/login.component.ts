@@ -21,7 +21,7 @@ export class LoginComponent {
     const userAuth = this.loginForm.getRawValue()['user-credentials'];
 
     this.authenticationService.login(userAuth).subscribe( response => {
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['products']);
     });
     
   }

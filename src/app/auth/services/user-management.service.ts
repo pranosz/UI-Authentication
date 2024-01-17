@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
+import { UserAuthResponse } from '../models/user-auth-response';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,15 @@ export class UserManagementService {
   }
 
   userAuthentication(user: User): Observable<any> {
-    return this.httpClient.post(`${this.url}/auth`, user);
+    return this.httpClient.post(`${this.url}/auth`, user, {withCredentials: true});
   }
 
-  userLogout(user: User): Observable<any> {
+  userLogout(): Observable<any> {
     return this.httpClient.get(`${this.url}/logout`);
+  }
+
+  refreshToken(): Observable<Pick<UserAuthResponse, 'accessToken'>> {
+    return this.httpClient.get<Pick<UserAuthResponse, 'accessToken'>>(`${this.url}/refresh`, {withCredentials: true});
   }
 
   checkIfUserExists(name: string): Observable<{'exists': boolean}> {
