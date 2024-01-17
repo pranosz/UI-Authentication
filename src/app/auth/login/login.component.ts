@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+import { startWith } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,6 @@ import { AuthenticationService } from '../services/authentication.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-
   private fb = inject(FormBuilder);
   private authenticationService = inject(AuthenticationService);
   private router = inject(Router);

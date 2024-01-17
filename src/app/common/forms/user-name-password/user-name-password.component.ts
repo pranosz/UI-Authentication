@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { AbstractControl, ControlContainer, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ValidatorsMessagesService } from 'src/app/auth/services/validators-messages';
 
@@ -30,6 +30,8 @@ export class UserNamePasswordComponent implements OnInit {
       pwd: ['', Validators.required]
     }))
   }
+
+  
 
   getErrorMessage(name: string): string {
     const control = this.parentFormGroup.controls[this.controlName]?.get(name);

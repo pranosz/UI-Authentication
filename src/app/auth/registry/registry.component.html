@@ -1,5 +1,4 @@
-<mat-grid-list cols="1" rowHeight="2:1">
-    <mat-grid-tile>
+<div fxLayoutAlign="center center" fxFlexFill>
     <form [formGroup]="registryForm" (ngSubmit)="onSubmit()">
         <mat-card class="registry-card width">
             <mat-card-header>
@@ -34,5 +33,4 @@
             </mat-card-content>
         </mat-card>
     </form>
-    </mat-grid-tile>
-</mat-grid-list>
+</div>

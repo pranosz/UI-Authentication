@@ -1,18 +1,16 @@
-<mat-grid-list cols="1" rowHeight="2:1">
-    <mat-grid-tile>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-card>
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="20">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <mat-card-header>
                 <mat-card-title>Login</mat-card-title>
                 <mat-card-subtitle>Enter your name and password</mat-card-subtitle>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content fxLayoutAlign="center" fxLayout="column">
                 <form-group-user-name-password
                     controlName="user-credentials"
                 ></form-group-user-name-password>
-                <button type="submit" mat-flat-button color="primary">Login</button>
+                <button type="submit" [disabled]="!loginForm.valid" mat-flat-button color="primary">Login</button>
             </mat-card-content>
-        </mat-card>
-    </form>
-    </mat-grid-tile>
-</mat-grid-list>
+        </form>
+    </mat-card>
+</div>

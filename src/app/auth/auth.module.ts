@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { routes } from './auth.routes';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { routes } from './auth.routes';
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FlexLayoutModule,
     RouterModule.forChild(routes)
   ],
   providers: [{
