@@ -1,6 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
-import { Observable, catchError, switchMap, tap, throwError } from "rxjs";
+import { Observable, catchError, switchMap, throwError } from "rxjs";
 import { AuthenticationService } from "../../auth/services/authentication.service";
 
 @Injectable({
@@ -20,18 +20,14 @@ export class JwtInterceptor implements HttpInterceptor {
 
         return next.handle(newReq)
             .pipe(catchError(err => {
-                console.log('JwtInterceptor ', err);
                 const refToken = this.authenticationService.refreshToken();
                 
                 if (err instanceof HttpErrorResponse && refToken) {
-                    console.log("err.status ", typeof err.status);
                     if (err.status === 403) {
                         console.log('403');
-                        if (refToken) {
                             return this.handleRefreshToken(newReq, next);
-                        } else {
-                            return throwError(() => err);;
-                        }  
+                    }else {
+                        return throwError(() => err);;
                     }
                 }
 
@@ -42,7 +38,6 @@ export class JwtInterceptor implements HttpInterceptor {
     private handleRefreshToken(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return this.authenticationService.refreshToken().pipe(
             switchMap(newToken => {
-                console.log("from refreshToken newToken ", newToken);
                 const req = this.addJWTokenToRequest(request, newToken);
                 return next.handle(req);
             }),
@@ -55,8 +50,7 @@ export class JwtInterceptor implements HttpInterceptor {
 
     private addJWTokenToRequest(request: HttpRequest<any>, authToken: string | null): HttpRequest<any>  {
         if (authToken) {
-            console.log('JwtInterceptor :) ');
-            return request = request.clone(
+            return request.clone(
                 {headers: request.headers.set('Authorization', `Bearer ${authToken}`)}
             );
         }

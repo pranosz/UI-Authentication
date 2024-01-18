@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
-import { AbstractControl, ControlContainer, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ValidatorsMessagesService } from 'src/app/auth/services/validators-messages';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { ControlContainer, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidatorsMessagesService } from 'src/app/common/services/validators-messages';
 
 @Component({
   selector: 'form-group-user-name-password',
@@ -36,7 +36,7 @@ export class UserNamePasswordComponent implements OnInit {
   getErrorMessage(name: string): string {
     const control = this.parentFormGroup.controls[this.controlName]?.get(name);
 
-    if(control && control.errors) {
+    if(control?.errors) {
       return this.validatorsMessagesService.getSingleMessage(control.errors);
     }
 
@@ -44,6 +44,6 @@ export class UserNamePasswordComponent implements OnInit {
   }
 
   mgOnDestroy(): void {
-    this,this.parentFormGroup.removeControl(this.controlName);
+    this.parentFormGroup.removeControl(this.controlName);
   }
 }

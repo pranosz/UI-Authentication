@@ -1,8 +1,8 @@
-import { ErrorHandler, Injectable, inject, signal } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { UserManagementService } from './user-management.service';
 import { User } from '../models/user';
 import { UserAuthResponse } from '../models/user-auth-response';
-import { Observable, catchError, map, of, subscribeOn, switchMap, tap } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

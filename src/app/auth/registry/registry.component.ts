@@ -1,12 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { UserManagementService } from '../services/user-management.service';
 import { startWith } from 'rxjs';
 import { AuthValidators } from 'src/app/common/validators/auth.validators';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { RangeValidators } from 'src/app/common/validators/range.validators';
-import { ValidatorsMessagesService } from 'src/app/auth/services/validators-messages';
+import { ValidatorsMessagesService } from 'src/app/common/services/validators-messages';
 import { Router } from '@angular/router';
 /*
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -75,7 +72,7 @@ export class RegistryComponent implements OnInit {
   getErrorMessage(controlName: string): string {
     const control = this.registryForm.get(controlName);
 
-    if(control && control.errors) {
+    if(control?.errors) {
       return this.validatorsMessagesService.getSingleMessage(control.errors);
     }
 
