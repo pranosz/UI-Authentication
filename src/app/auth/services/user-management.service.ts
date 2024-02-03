@@ -21,7 +21,7 @@ export class UserManagementService {
   }
 
   userLogout(): Observable<any> {
-    return this.httpClient.get(`${this.url}/logout`);
+    return this.httpClient.get(`${this.url}/logout`,{withCredentials: true});
   }
 
   refreshToken(): Observable<Pick<UserAuthResponse, 'accessToken'>> {
